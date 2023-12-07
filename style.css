@@ -1,0 +1,266 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  --f-color: #fff;
+  --s-color: #f472b6;
+
+  /*========== Font and typography ==========*/
+  --body-font: "Poppins", sans-serif;
+  --biggest-font-size: 2.5rem;
+  --normal-font-size: 0.938rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--body-font);
+  color: var(--f-color);
+  font-size: var(--normal-font-size);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 1.5rem;
+}
+
+.header {
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.nav {
+  height: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  font-size: 1.25rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.nav__link {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.nav__close,
+.nav__toggle {
+  display: flex;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+/* Navigation for mobile devices */
+@media screen and (max-width: 768px) {
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    height: 100%;
+    background-color: #141414;
+    padding: 6rem 3rem;
+    transition: right 0.4s;
+  }
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+
+.nav__link {
+  position: relative;
+}
+
+.nav__link::before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--s-color);
+  border-radius: 2px;
+  transform: scale(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+
+.nav__link:hover::before {
+  transform: scale(1);
+}
+
+.nav__close {
+  position: absolute;
+  top: 1.125rem;
+  right: 1.25rem;
+}
+
+.show-menu {
+  right: 0;
+}
+
+.home {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url("bg.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+/* HOME */
+
+.home__container {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.home__title {
+  font-size: var(--biggest-font-size);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  line-height: 2.75rem;
+  letter-spacing: 1px;
+}
+
+.home__title span {
+  color: var(--s-color);
+}
+
+.home__description {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
+.home__description span {
+  color: var(--s-color);
+}
+
+.home__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1rem;
+}
+
+.btn {
+  position: relative;
+  width: 160px;
+  padding: 16px 0;
+  background: transparent;
+  border-radius: 1.5rem;
+  color: #fff;
+  font-size: var(--normal-font-size);
+  text-transform: uppercase;
+  border: 2px solid var(--s-color);
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #f472b6;
+  transition: width 0.4s;
+  z-index: -1;
+}
+
+.btn:hover span {
+  width: 100%;
+}
+
+@media screen and (min-width: 576px) {
+  .nav__menu {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    margin: 0 2.5rem;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+  }
+
+  .nav__logo {
+    font-size: 2rem;
+  }
+
+  .nav__toggle,
+  .nav__close {
+    display: none;
+  }
+  .nav__menu {
+    width: initial;
+  }
+
+  .nav__list {
+    flex-direction: row;
+    column-gap: 2rem;
+  }
+
+  .home__button {
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 1.5rem;
+  }
+
+  .btn {
+    width: 200px;
+  }
+}
+
+@media screen and (min-width: 1152px) {
+  .container {
+    margin: 0 auto;
+  }
+
+  .home__title {
+    margin-bottom: 2rem;
+  }
+
+  .home__description {
+    width: initial;
+    margin-bottom: 3rem;
+  }
+
+  :root {
+    --biggest-font-size: 3.75rem;
+    --normal-font-size: 1rem;
+  }
+}
